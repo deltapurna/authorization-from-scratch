@@ -1,0 +1,24 @@
+$brand-primary: #16a085;
+// "bootstrap-sprockets" must be imported before "bootstrap" and "bootstrap/variables"
+@import "bootstrap-sprockets";
+@import "bootstrap";
+
+#topics h2 {
+  margin-bottom: 5px;
+  margin-top: 20px;
+  font-size: 18px;
+}
+
+.post {
+  border: solid 1px #CCC;
+  margin-bottom: 15px;
+  padding: 12px 16px;
+}
+
+p {
+  margin-top: 20px;
+}
+
+.actions {
+  margin-top: 10px;
+}

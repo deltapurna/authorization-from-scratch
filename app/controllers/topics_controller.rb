@@ -4,7 +4,7 @@ class TopicsController < ApplicationController
   # GET /topics
   # GET /topics.json
   def index
-    @topics = Topic.all
+    @topics = Topic.includes(:posts).order(sticky: :desc)
   end
 
   # GET /topics/1

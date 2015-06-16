@@ -1,19 +1,9 @@
-<p id="notice"><%= notice %></p>
+<h1><%= @topic.name %></h1>
 
-<p>
-  <strong>Name:</strong>
-  <%= @topic.name %>
-</p>
+<% @topic.posts.each do |post| %>
+  <div class="post">
+    <%= post.content %>
+  </div>
+<% end %>
 
-<p>
-  <strong>Sticky:</strong>
-  <%= @topic.sticky %>
-</p>
-
-<p>
-  <strong>User:</strong>
-  <%= @topic.user %>
-</p>
-
-<%= link_to 'Edit', edit_topic_path(@topic) %> |
-<%= link_to 'Back', topics_path %>
+<p><%= link_to "Back to topics", topics_path %></p>
