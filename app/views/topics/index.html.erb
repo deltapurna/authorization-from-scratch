@@ -5,9 +5,15 @@
   <h2><%= link_to topic.name, topic %></h2>
   <%= "Sticky |" if topic.sticky? %>
   <%= pluralize topic.posts.size, "post" %>
-  | <%= link_to 'Edit', edit_topic_path(topic) %>
-  | <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% if allow? 'topics', 'edit' %>
+    | <%= link_to 'Edit', edit_topic_path(topic) %>
+  <% end %>
+  <% if allow? 'topics', 'destroy' %>
+    | <td><%= link_to 'Destroy', topic, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+  <% end %>
 <% end %>
 </div>
 
-<p><%= link_to 'New Topic', new_topic_path, class: 'btn btn-primary' %></p>
+<% if allow? 'topics', 'new' %>
+  <p><%= link_to 'New Topic', new_topic_path, class: 'btn btn-primary' %></p>
+<% end %>

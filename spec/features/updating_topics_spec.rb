@@ -13,4 +13,10 @@ feature "UpdatingTopics", :type => :feature do
     expect(page).to have_content("New Name")
     expect(page).to_not have_content("Old Name")
   end
+
+  it 'cannot edit as guest' do
+    topic = create(:topic)
+    visit edit_topic_path(topic)
+    expect(page).to have_content("Not authorized")
+  end
 end
